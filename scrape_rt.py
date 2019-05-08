@@ -14,30 +14,12 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 
-url = 'https://russian.rt.com/search?q=%D1%80%D0%BE%D1%81%D1%81%D0%B8%D1%8F+%D1%81%D0%B8%D1%80%D0%B8%D1%8F+%D0%B2%D0%BE%D0%B9%D0%BD%D0%B0&type=&df=2016-05-01&dt=2016-08-01'
-
-req = requests.get(url, HEADERS)
-plain_text = req.text
-soup = BeautifulSoup(plain_text, "lxml")
-print(type(soup))
-
-'''
-articles = soup.find('div', {'class': 'listing__content listing__content_js'})
-
-ankor_list = articles.findChildren('a')
-
-for ankor in ankor_list:
-    url = ankor.get('href')
-    print(url)
-'''
 
 driver = webdriver.Firefox()
-driver.get('https://russian.rt.com/search?q=%D1%80%D0%BE%D1%81%D1%81%D0%B8%D1%8F+%D1%81%D0%B8%D1%80%D0%B8%D1%8F+%D0%B2%D0%BE%D0%B9%D0%BD%D0%B0&type=&df=2016-05-01&dt=2016-08-01')
+driver.get('https://russian.rt.com/search?q=%D0%BC%D0%BE%D1%81%D0%BA%D0%B2%D0%B0+%D1%81%D0%B8%D1%80%D0%B8%D1%8F+%D0%B2%D0%BE%D0%B9%D0%BD%D0%B0&type=&df=2016-05-01&dt=2016-08-01')
 driver.maximize_window()
 #WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.LINK_TEXT, "Загрузить ещё")))
 while True:
-	#print('yeeees')
-  # do whatever you want
 	try:
 		#print('yeeees')
 		driver.find_element_by_link_text('Подтвердить').click()
@@ -59,17 +41,9 @@ while True:
 		#driver.find_element_by_link_text('Загрузить ещё').click()
 		#elm = driver.find_element_by_class_name('listing__button listing__button_js')
 		#elm.click()
-		articles = soup.find('div', {'class': 'listing__content listing__content_js'})
-		ankor_list = articles.findChildren('a')
-
-		for ankor in ankor_list:
-		    url = ankor.get('href')
-		    #print(url)
-
-
 
 		links = []
-		for i in range(0,5):
+		for i in range(0,14):
 			WebDriverWait(driver,20).until(EC.presence_of_element_located((By.LINK_TEXT, "Загрузить ещё")))
 			#WebDriverWait(driver,20).until(EC.invisibility_of_element_located((By.LINK_TEXT, "Загрузить ещё")))
 			print('waiting done')
@@ -128,7 +102,7 @@ while True:
 
 		links = pd.DataFrame({'links' : links })
 		links = links.drop_duplicates(subset='links', keep='last', inplace=False)
-		links.to_csv('RT_links.csv')
+		links.to_csv('RT_links_moscow.csv')
 
 
 		#articles2 = soup.find('div', {'class': 'card__heading card__heading_all-new'})
