@@ -16,20 +16,21 @@ from selenium.common.exceptions import TimeoutException
 
 
 driver = webdriver.Firefox()
-driver.get('https://russian.rt.com/search?q=%D0%BC%D0%BE%D1%81%D0%BA%D0%B2%D0%B0+%D1%81%D0%B8%D1%80%D0%B8%D1%8F+%D0%B2%D0%BE%D0%B9%D0%BD%D0%B0&type=&df=2016-05-01&dt=2016-08-01')
+driver.get('https://www.rbc.ru/search/?query=%D1%80%D0%BE%D1%81%D1%81%D0%B8%D1%8F+%D1%81%D0%B8%D1%80%D0%B8%D1%8F+%D0%B2%D0%BE%D0%B9%D0%BD%D0%B0&project=rbcnews&dateFrom=01.05.2016&dateTo=31.08.2016')
 driver.maximize_window()
 #WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.LINK_TEXT, "Загрузить ещё")))
 while True:
 	try:
-		#print('yeeees')
+		print('yeeees')
+
+		'''
 		driver.find_element_by_link_text('Подтвердить').click()
 		print('Closed cookies window')
-		#driver.find_element_by_xpath('//div[contains(@class,"ui-dialog") and @aria-describedby="dialogContent2"]//button[@title="Close"]').click()
 		driver.find_element_by_class_name('subscribe-layout')
-		#print('yeeees')
 		#driver.find_element_by_link_text('Загрузить ещё').click()
 		driver.find_element_by_class_name('subscribe__close').click()
 		print('Closed subscription window')
+
 		#WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.LINK_TEXT, "Close Pop-Up"))).click()
 		#print("MORE button clicked")
 #		list_next = driver.find_elements(by=By.LINK_TEXT, value='Загрузить ещё')
@@ -48,8 +49,7 @@ while True:
 			#WebDriverWait(driver,20).until(EC.invisibility_of_element_located((By.LINK_TEXT, "Загрузить ещё")))
 			print('waiting done')
 			driver.find_element_by_link_text('Загрузить ещё').click()
-			print('Clicked on "Load more')
-			'''
+
 			html = driver.page_source
 			html = BeautifulSoup(html, "lxml")
 			print(type(html))
@@ -83,7 +83,7 @@ while True:
 
 		WebDriverWait(driver,10).until(EC.invisibility_of_element_located((By.CLASS_NAME, "Загрузить ещё")))
 				#elm.click()
-			'''
+
 
 		html = driver.page_source
 		html = BeautifulSoup(html, "lxml")
@@ -109,7 +109,6 @@ while True:
 		#print(articles2)	
 
 
-		'''
 
 		plain_text = req.text
 		soup = BeautifulSoup(plain_text, "lxml")
@@ -126,6 +125,7 @@ while True:
 		#articles2 = soup.find('div', {'class': 'card__heading card__heading_all-new'})
 		#print(articles2)
 		'''
+
 		
 
 
@@ -137,3 +137,5 @@ while True:
 
 	finally:
 		driver.quit()
+
+
