@@ -15,6 +15,7 @@ def get_articles(df):
 			article.download()
 			article.parse()
 			headers.append(article.title)
+			print(article.title)
 			texts.append(article.text)
 			driver.implicitly_wait(5)
 
