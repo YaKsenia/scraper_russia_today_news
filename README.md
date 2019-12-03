@@ -8,7 +8,7 @@ python3.6 -m pip install -r requirements.txt --upgrade
 
 Then you should go to https://russian.rt.com/, choose the keywords and dates you are interested in, copy the resulting link and replace the link in settings.py file with this url.
 
-![alt text](https://github.com/YaKsenia/scraper_russia_today_website/blob/master/output/copy_the%20_link.png)
+![alt text](https://github.com/YaKsenia/scraper_russia_today_website/blob/master/output/copy_link.png)
 
 then you can just run the file main_rt.py using this command in your Terminal:
 
