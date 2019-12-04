@@ -2,7 +2,7 @@
 
 (Описание на русском ниже)
 
-This project collects news articles' titles and texts from the website of Russian newspaper RBC. You can choose any topic and time period, from which you want to get the articles.
+This project collects news articles' titles and texts from the website of Russian newspaper RT. You can choose any topic and time period, from which you want to get the articles.
 
 Before running the project, you have to install the necessary software typing this command in your Terminal/command line:
 
@@ -54,12 +54,12 @@ This is how resulting file looks like:
 **python3.6 -m pip install -r requirements.txt --upgrade**
 
 
-Затем вам нужно перейти на rbc.ru/search, выбрать ключевые слова и даты, которые вас интересуют, скопировать получившуюся ссылку и заменить ссылку в файле settings.py этим URL.
+Затем вам нужно перейти на https://russian.rt.com/, выбрать ключевые слова и даты, которые вас интересуют, скопировать получившуюся ссылку и заменить ссылку в файле settings.py этим URL.
 
 ![alt text](https://github.com/YaKsenia/scraper_russia_today_website/blob/master/output/copy_link.png)
 
 
-Теперь вы можете просто запустить файл main_rbc.py с помощью этой команды в вашем терминале\командной строке:
+Теперь вы можете просто запустить файл main_rt.py с помощью этой команды в вашем терминале\командной строке:
 
 
 **python3.6 main_rt.py**
