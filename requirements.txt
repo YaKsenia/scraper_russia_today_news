@@ -2,3 +2,5 @@ pandas
 requests
 bs4
 selenium
+lxml_html_clean
+newspaper3k
